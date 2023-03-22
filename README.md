@@ -12,10 +12,11 @@ into the console. The long division algorithm will be in Eurasian style.
 
 
 
-## Examples:
+## Example:
 
 - Dividend is 78945 and divisor is 4:
 
+![Dividend is 78945 and divisor is 4:](images/integer_division.png)
 
 
 ## Usage
