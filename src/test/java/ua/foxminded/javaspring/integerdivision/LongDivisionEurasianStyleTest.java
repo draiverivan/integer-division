@@ -32,7 +32,7 @@ class LongDivisionEurasianStyleTest {
                             "   _25\n"+
                             "    24\n"+
                             "    --\n"+
-        					"     1\n";
+                            "     1\n";
         // @formatter:on
 		assertEquals(expected, division.makeDivision(78945, 4));
 	}

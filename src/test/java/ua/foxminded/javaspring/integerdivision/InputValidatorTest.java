@@ -13,17 +13,17 @@ import org.junit.jupiter.params.provider.ValueSource;
  */
 class InputValidatorTest {
 
+	InputValidator inputValidator = new InputValidator();
+
 	@ParameterizedTest
 	@ValueSource(strings = { "100", "14569", "0", "5", "3", "10", "1", "53", "99", "15646645" })
 	void isDividendValid_ReturnTrue_DividendIsIntegerAndNonNegative(String userDividend) {
-		InputValidator inputValidator = new InputValidator();
 		assertTrue(inputValidator.isDividendValid(userDividend));
 	}
 
 	@ParameterizedTest
 	@ValueSource(strings = { "-100", "14.569", "0.5", "five", "hundred", "60%", "40$", "5.555", "100.0", "zero" })
 	void isDividendValid_ReturnFalse_DividendIsNotIntegerAndNonNegative(String userDividend) {
-		InputValidator inputValidator = new InputValidator();
 		assertFalse(inputValidator.isDividendValid(userDividend));
 	}
 
@@ -31,21 +31,18 @@ class InputValidatorTest {
 	@NullAndEmptySource
 	@ValueSource(strings = { "", " ", "      ", "\t", "\n", "   ", "    ", "   ", "   " })
 	void isDividendValid_ReturnFalse_DividendIsNullAndEmptyAndOnlySpaces(String userDividend) {
-		InputValidator inputValidator = new InputValidator();
 		assertFalse(inputValidator.isDividendValid(userDividend));
 	}
 
 	@ParameterizedTest
 	@ValueSource(strings = { "100", "14569", "555", "5", "3", "10", "1", "53", "99", "15646645" })
 	void isDivisorValid_ReturnTrue_DivisorIsIntegerAndGreaterThanNull(String userDivisor) {
-		InputValidator inputValidator = new InputValidator();
 		assertTrue(inputValidator.isDivisorValid(userDivisor));
 	}
 
 	@ParameterizedTest
 	@ValueSource(strings = { "-100", "0", "null", "one", "3.5", "55.5", "-1", "100.0", "99.9", "-15646645" })
 	void isDivisorValid_ReturnFalse_DivisorIsNotIntegerAndGreaterThanNull(String userDivisor) {
-		InputValidator inputValidator = new InputValidator();
 		assertFalse(inputValidator.isDivisorValid(userDivisor));
 	}
 
@@ -53,7 +50,6 @@ class InputValidatorTest {
 	@NullAndEmptySource
 	@ValueSource(strings = { "", " ", "      ", "\t", "\n", "   ", "    ", "   ", "   " })
 	void isDivisorValid_ReturnFalse_DivisorIsNullAndEmptyAndOnlySpaces(String userDivisor) {
-		InputValidator inputValidator = new InputValidator();
 		assertFalse(inputValidator.isDivisorValid(userDivisor));
 	}
 
