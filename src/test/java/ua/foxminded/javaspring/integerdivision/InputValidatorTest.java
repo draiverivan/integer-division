@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.ValueSource;
  * Unit test for InputValidator. User can input anything. But our program need dividend be integer and non-negative 
  * number and divisor be integer and greater than null number. So this test validate if InputValidator class work as supposed. 
  */
-public class InputValidatorTest {
+class InputValidatorTest {
 
 	@ParameterizedTest
 	@ValueSource(strings = { "100", "14569", "0", "5", "3", "10", "1", "53", "99", "15646645" })

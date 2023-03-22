@@ -13,9 +13,10 @@ import org.junit.jupiter.api.Test;
 class LongDivisionEurasianStyleTest {
 
 	LongDivisionEurasianStyle division = new LongDivisionEurasianStyle();
-	
+
 	@Test
-	public void makeDivision_ShouldMakeLongDivision_DividendIs78945DivisorIs4() {
+	void makeDivision_ShouldMakeLongDivision_DividendIs78945DivisorIs4() {
+		// @formatter:off
         String expected =   "_78945│4\n" + 
                             " 4    │-----\n" + 
                             " -    │19736\n" + 
@@ -32,11 +33,13 @@ class LongDivisionEurasianStyleTest {
                             "    24\n"+
                             "    --\n"+
         					"     1\n";
-        assertEquals(expected, division.makeDivision(78945, 4));
-    }
-	
+        // @formatter:on
+		assertEquals(expected, division.makeDivision(78945, 4));
+	}
+
 	@Test
-	public void makeDivision_ShouldMakeLongDivision_DividendIs14789DivisorIs20() {
+	void makeDivision_ShouldMakeLongDivision_DividendIs14789DivisorIs20() {
+		// @formatter:off
         String expected =   "_14789│20\n" + 
                             " 140  │---\n" + 
                             " ---  │739\n" + 
@@ -47,21 +50,24 @@ class LongDivisionEurasianStyleTest {
                             "   180\n" + 
                             "   ---\n" + 
                             "     9\n";
-        assertEquals(expected, division.makeDivision(14789, 20));
-    }
+        // @formatter:on
+		assertEquals(expected, division.makeDivision(14789, 20));
+	}
 
 	@Test
-	public void makeDivision_ShouldMakeLongDivision_DividendIs0DivisorIs20() {
+	void makeDivision_ShouldMakeLongDivision_DividendIs0DivisorIs20() {
+		// @formatter:off
 		String expected = "0/20=0\nIt's impossible make long division.";
+		// @formatter:on
 		assertEquals(expected, division.makeDivision(0, 20));
 	}
 
 	@Test
-	public void makeDivision_ShouldMakeLongDivision_DividendIs44DivisorIs77() {
+	void makeDivision_ShouldMakeLongDivision_DividendIs44DivisorIs77() {
+		// @formatter:off
 		String expected = "44/77=0\nIt's impossible make long division.";
+		// @formatter:on
 		assertEquals(expected, division.makeDivision(44, 77));
 	}
-	
-	
 
 }
