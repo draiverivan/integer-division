@@ -8,6 +8,7 @@ public class LongDivisionEurasianStyle {
 	private StringBuilder quotient = new StringBuilder();
 	private StringBuilder reminder = new StringBuilder();
 	private static final String EMPTY = "";
+	private static final char SPACE = ' ';
 
 	public String makeDivision(int dividend, int divisor) {
 
@@ -57,7 +58,7 @@ public class LongDivisionEurasianStyle {
 	}
 
 	private String makeDivider(int reminderNumber, int tab) {
-		return assemblyString(tab, ' ') + assemblyString(calculateDigit(reminderNumber), '-');
+		return assemblyString(tab, SPACE) + assemblyString(calculateDigit(reminderNumber), '-');
 	}
 
 	private void modifyResultToView(Integer dividend, int divisor) {
@@ -74,8 +75,8 @@ public class LongDivisionEurasianStyle {
 		}
 
 		int tab = calculateDigit(dividend) + 1 - index[0];
-		result.insert(index[2], assemblyString(tab, ' ') + "│" + quotient.toString());
-		result.insert(index[1], assemblyString(tab, ' ') + "│" + assemblyString(quotient.length(), '-'));
+		result.insert(index[2], assemblyString(tab, SPACE) + "│" + quotient.toString());
+		result.insert(index[1], assemblyString(tab, SPACE) + "│" + assemblyString(quotient.length(), '-'));
 		result.insert(index[0], "│" + divisor);
 		result.replace(1, index[0], dividend.toString());
 	}
