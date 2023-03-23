@@ -6,29 +6,27 @@ and user divisor input is integer and greater than null number*/
 
 public class InputValidator {
 
-	public boolean isDividendValid(String userDividend) {
+	public static boolean isInputdValid(String userDividend, String userDivisor) {
 
-		if (userDividend == null) {
-			return false;
-		}
+		boolean validDividend;
+		boolean validDivisor;
+		boolean inputNotNull = userDividend != null && userDivisor != null;
+
 		try {
 			int dividend = Integer.parseInt(userDividend);
-			return dividend >= 0;
+			validDividend = dividend >= 0;
 		} catch (NumberFormatException ex) {
-			return false;
+			validDividend = false;
 		}
-	}
 
-	public boolean isDivisorValid(String userDivisor) {
-
-		if (userDivisor == null) {
-			return false;
-		}
 		try {
 			int divisor = Integer.parseInt(userDivisor);
-			return divisor > 0;
+			validDivisor = divisor > 0;
 		} catch (NumberFormatException ex) {
-			return false;
+			validDivisor = false;
 		}
+
+		return inputNotNull && validDividend && validDivisor;
 	}
+
 }

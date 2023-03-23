@@ -57,7 +57,7 @@ class LongDivisionEurasianStyleTest {
 	@Test
 	void makeDivision_ShouldMakeLongDivision_DividendIs0DivisorIs20() {
 		// @formatter:off
-		String expected = "0/20=0\nIt's impossible make long division.";
+		String expected = "0/20=0" + System.lineSeparator()+ "It's impossible make long division.";
 		// @formatter:on
 		assertEquals(expected, division.makeDivision(0, 20));
 	}
@@ -65,7 +65,7 @@ class LongDivisionEurasianStyleTest {
 	@Test
 	void makeDivision_ShouldMakeLongDivision_DividendIs44DivisorIs77() {
 		// @formatter:off
-		String expected = "44/77=0\nIt's impossible make long division.";
+		String expected = "44/77=0" + System.lineSeparator()+ "It's impossible make long division.";
 		// @formatter:on
 		assertEquals(expected, division.makeDivision(44, 77));
 	}

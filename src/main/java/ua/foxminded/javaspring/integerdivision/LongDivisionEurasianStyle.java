@@ -7,17 +7,18 @@ public class LongDivisionEurasianStyle {
 	private StringBuilder result = new StringBuilder();
 	private StringBuilder quotient = new StringBuilder();
 	private StringBuilder reminder = new StringBuilder();
+	private static final String EMPTY = "";
 
 	public String makeDivision(int dividend, int divisor) {
 
 		if (dividend < divisor) {
-			return "" + dividend + "/" + divisor + "=0\nIt's impossible make long division.";
+			return EMPTY + dividend + "/" + divisor + "=0" + System.lineSeparator() + "It's impossible make long division.";
 		}
 
-		String[] digits = String.valueOf(dividend).split("");
+		String[] digits = String.valueOf(dividend).split(EMPTY);
 		Integer reminderNumber;
-		Integer multiplyResult;
-		Integer divisorDigit = calculateDigit(divisor);
+		int multiplyResult;
+		int divisorDigit = calculateDigit(divisor);
 		Integer mod;
 
 		for (int i = 0; i < digits.length; i++) {
@@ -34,7 +35,7 @@ public class LongDivisionEurasianStyle {
 				String multiply = String.format("%" + (i + 2) + "d", multiplyResult);
 				result.append(multiply).append("\n");
 
-				Integer tab = lastReminder.length() - calculateDigit(multiplyResult);
+				int tab = lastReminder.length() - calculateDigit(multiplyResult);
 				result.append(makeDivider(reminderNumber, tab)).append("\n");
 
 				quotient.append(reminderNumber / divisor);
@@ -55,11 +56,11 @@ public class LongDivisionEurasianStyle {
 		return result.toString();
 	}
 
-	private String makeDivider(Integer reminderNumber, Integer tab) {
+	private String makeDivider(int reminderNumber, int tab) {
 		return assemblyString(tab, ' ') + assemblyString(calculateDigit(reminderNumber), '-');
 	}
 
-	private void modifyResultToView(Integer dividend, Integer divisor) {
+	private void modifyResultToView(Integer dividend, int divisor) {
 		int[] index = new int[3];
 		for (int i = 0, j = 0; i < result.length(); i++) {
 			if (result.charAt(i) == '\n') {
