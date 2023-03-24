@@ -10,13 +10,12 @@ import java.util.Scanner;
 public class StartLongDivisionEurasianStyle {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		InputValidator checkInput = new InputValidator();
 		System.out.print("Enter the dividend: ");
 		String userDividend = scanner.nextLine();
 		System.out.print("Enter the divisor: ");
 		String userDivisor = scanner.nextLine();
 
-		while (!checkInput.isInputdValid(userDividend, userDivisor)) {
+		while (!InputValidator.isInputdValid(userDividend, userDivisor)) {
 			System.out.println(
 					"Dividend must be integer and non-negative number. Dividend must be integer and non-negative number.Please try again.");
 			System.out.print("Enter the dividend: ");

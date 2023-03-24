@@ -17,41 +17,41 @@ class LongDivisionEurasianStyleTest {
 	@Test
 	void makeDivision_ShouldMakeLongDivision_DividendIs78945DivisorIs4() {
 		// @formatter:off
-        String expected =   "_78945│4\n" + 
-                            " 4    │-----\n" + 
-                            " -    │19736\n" + 
-                            "_38\n" + 
-                            " 36\n" + 
-                            " --\n" + 
-                            " _29\n" + 
-                            "  28\n" + 
-                            "  --\n" + 
-                            "  _14\n"+
-                            "   12\n"+
-                            "   --\n"+
-                            "   _25\n"+
-                            "    24\n"+
-                            "    --\n"+
-                            "     1\n";
+        String expected =   "_78945│4" +  System.lineSeparator() + 
+                            " 4    │-----" +  System.lineSeparator() + 
+                            " -    │19736" +  System.lineSeparator() + 
+                            "_38" +  System.lineSeparator() + 
+                            " 36" +  System.lineSeparator() + 
+                            " --" +  System.lineSeparator() + 
+                            " _29" +  System.lineSeparator() + 
+                            "  28" +  System.lineSeparator() + 
+                            "  --" +  System.lineSeparator() + 
+                            "  _14" +  System.lineSeparator()+
+                            "   12" +  System.lineSeparator()+
+                            "   --" +  System.lineSeparator()+
+                            "   _25" +  System.lineSeparator()+
+                            "    24" +  System.lineSeparator()+
+                            "    --" +  System.lineSeparator()+
+                            "     1" +  System.lineSeparator();
         // @formatter:on
-		assertEquals(expected, division.makeDivision(78945, 4));
+		assertEquals(expected, division.makeDivision(78945, 4).toString());
 	}
 
 	@Test
 	void makeDivision_ShouldMakeLongDivision_DividendIs14789DivisorIs20() {
 		// @formatter:off
-        String expected =   "_14789│20\n" + 
-                            " 140  │---\n" + 
-                            " ---  │739\n" + 
-                            "  _78\n" + 
-                            "   60\n" + 
-                            "   --\n" + 
-                            "  _189\n" + 
-                            "   180\n" + 
-                            "   ---\n" + 
-                            "     9\n";
+        String expected =   "_14789│20" +  System.lineSeparator() + 
+                            " 140  │---" +  System.lineSeparator() + 
+                            " ---  │739" +  System.lineSeparator() + 
+                            "  _78" +  System.lineSeparator() + 
+                            "   60" +  System.lineSeparator() + 
+                            "   --" +  System.lineSeparator() + 
+                            "  _189" +  System.lineSeparator() + 
+                            "   180" +  System.lineSeparator() + 
+                            "   ---" +  System.lineSeparator() + 
+                            "     9" +  System.lineSeparator();
         // @formatter:on
-		assertEquals(expected, division.makeDivision(14789, 20));
+		assertEquals(expected, division.makeDivision(14789, 20).toString());
 	}
 
 	@Test
