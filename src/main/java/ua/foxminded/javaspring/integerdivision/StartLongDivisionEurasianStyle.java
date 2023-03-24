@@ -15,14 +15,19 @@ public class StartLongDivisionEurasianStyle {
 		System.out.print("Enter the divisor: ");
 		String userDivisor = scanner.nextLine();
 
-		while (!InputValidator.isInputdValid(userDividend, userDivisor)) {
-			System.out.println(
-					"Dividend must be integer and non-negative number. Dividend must be integer and non-negative number.Please try again.");
-			System.out.print("Enter the dividend: ");
-			userDividend = scanner.nextLine();
-			System.out.print("Enter the divisor: ");
-			userDivisor = scanner.nextLine();
+		while (!"Input is valid".equals(InputValidator.isInputdValid(userDividend, userDivisor))) {
+
+			if ("Invalid dividend".equals(InputValidator.isInputdValid(userDividend, userDivisor))) {
+				System.out.print("Dividend must be integer and non-negative number. Enter the dividend: ");
+				userDividend = scanner.nextLine();
+			}
+			if ("Invalid divisor".equals(InputValidator.isInputdValid(userDividend, userDivisor))) {
+				System.out.print(
+						"Divisor must be integer and greater than null number.Please try again. Enter the divisor: ");
+				userDivisor = scanner.nextLine();
+			}
 		}
+		System.out.println(InputValidator.isInputdValid(userDividend, userDivisor));
 		scanner.close();
 		int dividend = Integer.parseInt(userDividend);
 		int divisor = Integer.parseInt(userDivisor);

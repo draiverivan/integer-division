@@ -10,11 +10,13 @@ public class InputValidator {
 		throw new IllegalStateException("Utility class");
 	}
 
-	public static boolean isInputdValid(String userDividend, String userDivisor) {
+	public static String isInputdValid(String userDividend, String userDivisor) {
 
+		String invalidDividend = "Invalid dividend";
+		String invalidDivisor = "Invalid divisor";
+		String inputIsValid = "Input is valid";
 		boolean validDividend;
 		boolean validDivisor;
-		boolean inputNotNull = userDividend != null && userDivisor != null;
 
 		try {
 			int dividend = Integer.parseInt(userDividend);
@@ -29,8 +31,12 @@ public class InputValidator {
 		} catch (NumberFormatException ex) {
 			validDivisor = false;
 		}
-
-		return inputNotNull && validDividend && validDivisor;
+		if (!validDividend) {
+			return invalidDividend;
+		} else if (!validDivisor) {
+			return invalidDivisor;
+		} else {
+			return inputIsValid;
+		}
 	}
-
 }
