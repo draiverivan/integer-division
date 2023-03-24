@@ -52,8 +52,7 @@ public class LongDivisionEurasianStyle {
 			}
 
 			if (i == digits.length - 1) {
-				result.append(String.format("%" + (i + 2) + "s", reminderNumber))
-						.append(System.lineSeparator());
+				result.append(String.format("%" + (i + 2) + "s", reminderNumber)).append(System.lineSeparator());
 			}
 		}
 		modifyResultToView(dividend, divisor);

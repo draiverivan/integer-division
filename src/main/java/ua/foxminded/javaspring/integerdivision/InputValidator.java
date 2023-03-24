@@ -6,6 +6,10 @@ and user divisor input is integer and greater than null number*/
 
 public class InputValidator {
 
+	private InputValidator() {
+		throw new IllegalStateException("Utility class");
+	}
+
 	public static boolean isInputdValid(String userDividend, String userDivisor) {
 
 		boolean validDividend;
