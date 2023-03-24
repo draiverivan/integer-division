@@ -12,13 +12,11 @@ import org.junit.jupiter.params.provider.CsvSource;
  */
 class InputValidatorTest {
 
-	InputValidator inputValidator = new InputValidator();
-
 	@ParameterizedTest
 	@CsvSource({ "100,3", "14569,7", "0,55", "5,2", "3,1", "10,101", "1,5", "53,23", "99,66" })
 	void isInputdValid_ReturnFalse_DividendIsIntegerAndNonNegativeAndDivisorIsIntegerAndGreaterThanNull(
 			String userDividend, String userDivisor) {
-		assertTrue(inputValidator.isInputdValid(userDividend, userDivisor));
+		assertTrue(InputValidator.isInputdValid(userDividend, userDivisor));
 	}
 
 	@ParameterizedTest
@@ -26,14 +24,14 @@ class InputValidatorTest {
 			"zero,4", "Integer.MAX_VALUE,Integer.MAX_VALUE" })
 	void isInputdValid_ReturnFalse_DividendIsNotIntegerAndNonNegativeAndDivisorIsValid(String userDividend,
 			String userDivisor) {
-		assertFalse(inputValidator.isInputdValid(userDividend, userDivisor));
+		assertFalse(InputValidator.isInputdValid(userDividend, userDivisor));
 	}
 
 	@ParameterizedTest
 	@CsvSource({ ",33", " ,1", "      ,2", "\t,44", "\n,22", "   ,11", "    ,5", "   ,31", "   ,67" })
 	void isInputdValid_ReturnFalse_DividendIsNullAndEmptyAndOnlySpacesAndDivisorIsValid(String userDividend,
 			String userDivisor) {
-		assertFalse(inputValidator.isInputdValid(userDividend, userDivisor));
+		assertFalse(InputValidator.isInputdValid(userDividend, userDivisor));
 	}
 
 	@ParameterizedTest
@@ -41,21 +39,21 @@ class InputValidatorTest {
 			"0,-15646645" })
 	void isInputdValid_ReturnFalse_DividendIsValidAndDivisorIsNotIntegerAndGreaterThanNull(String userDividend,
 			String userDivisor) {
-		assertFalse(inputValidator.isInputdValid(userDividend, userDivisor));
+		assertFalse(InputValidator.isInputdValid(userDividend, userDivisor));
 	}
 
 	@ParameterizedTest
 	@CsvSource({ "324,", "2, ", "0,      ", "4,\t", "55,\n" })
 	void isInputdValid_ReturnFalse_DividendIsValidAndDivisorIsNullAndEmptyAndOnlySpaces(String userDividend,
 			String userDivisor) {
-		assertFalse(inputValidator.isInputdValid(userDividend, userDivisor));
+		assertFalse(InputValidator.isInputdValid(userDividend, userDivisor));
 	}
 
 	@ParameterizedTest
 	@CsvSource(value = { "null,null", "null,4", "3,null", "0,null", "null, ", " ,null", ",5", "null,",
 			"," }, nullValues = { "null" })
 	void isInputdValid_ReturnFalse_DividendOrDivisorIsNullOrEmptyOrOnlySpaces(String userDividend, String userDivisor) {
-		assertFalse(inputValidator.isInputdValid(userDividend, userDivisor));
+		assertFalse(InputValidator.isInputdValid(userDividend, userDivisor));
 	}
 
 }
