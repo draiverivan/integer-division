@@ -5,38 +5,49 @@ if user dividend input is integer and non-negative number
 and user divisor input is integer and greater than null number*/
 
 public class InputValidator {
-
+	
 	private InputValidator() {
 		throw new IllegalStateException("Utility class");
 	}
 
-	public static String isInputdValid(String userDividend, String userDivisor) {
+	static final String ERROR_INVALID_DIVIDEND = "Invalid dividend. Dividend must be integer and non-negative number.";
+	static final String ERROR_INVALID_DIVISOR = "Invalid divisor. Divisor must be integer and greater than null number.";
 
-		String invalidDividend = "Invalid dividend";
-		String invalidDivisor = "Invalid divisor";
-		String inputIsValid = "Input is valid";
-		boolean validDividend;
-		boolean validDivisor;
+	public static ValidatorResults isInputdValid(String userDividend, String userDivisor) {
+
+		ValidatorResults validatorResults = new ValidatorResults();
+		StringBuilder sb = new StringBuilder();
+
+		boolean isDividendValid;
+		boolean isDivisorValid;
+		boolean isInputValid;
 
 		try {
 			int dividend = Integer.parseInt(userDividend);
-			validDividend = dividend >= 0;
+			if (dividend < 0) {
+		        throw new NumberFormatException(ERROR_INVALID_DIVIDEND);
+		    }
+		    isDividendValid = true;
 		} catch (NumberFormatException ex) {
-			validDividend = false;
+			isDividendValid = false;
+			sb.append(ERROR_INVALID_DIVIDEND);
 		}
 
 		try {
 			int divisor = Integer.parseInt(userDivisor);
-			validDivisor = divisor > 0;
+			if (divisor <= 0) {
+		        throw new NumberFormatException(ERROR_INVALID_DIVIDEND);
+		    }
+			isDivisorValid = true;
 		} catch (NumberFormatException ex) {
-			validDivisor = false;
+			isDivisorValid = false;
+			sb.append(ERROR_INVALID_DIVISOR);
 		}
-		if (!validDividend) {
-			return invalidDividend;
-		} else if (!validDivisor) {
-			return invalidDivisor;
-		} else {
-			return inputIsValid;
-		}
+
+		isInputValid = isDividendValid && isDivisorValid;
+		validatorResults.setValid(isInputValid);
+		validatorResults.setErrorMessage(sb.toString());
+		return validatorResults;
+
 	}
 }
