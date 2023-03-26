@@ -5,7 +5,7 @@ if user dividend input is integer and non-negative number
 and user divisor input is integer and greater than null number*/
 
 public class InputValidator {
-	
+
 	private InputValidator() {
 		throw new IllegalStateException("Utility class");
 	}
@@ -18,29 +18,27 @@ public class InputValidator {
 		ValidatorResults validatorResults = new ValidatorResults();
 		StringBuilder sb = new StringBuilder();
 
-		boolean isDividendValid;
-		boolean isDivisorValid;
+		boolean isDividendValid = false;
+		boolean isDivisorValid = false;
 		boolean isInputValid;
 
 		try {
 			int dividend = Integer.parseInt(userDividend);
 			if (dividend < 0) {
-		        throw new NumberFormatException(ERROR_INVALID_DIVIDEND);
-		    }
-		    isDividendValid = true;
+				sb.append(ERROR_INVALID_DIVIDEND);
+			}
+			isDividendValid = dividend >= 0;
 		} catch (NumberFormatException ex) {
-			isDividendValid = false;
 			sb.append(ERROR_INVALID_DIVIDEND);
 		}
 
 		try {
 			int divisor = Integer.parseInt(userDivisor);
 			if (divisor <= 0) {
-		        throw new NumberFormatException(ERROR_INVALID_DIVIDEND);
-		    }
-			isDivisorValid = true;
+				sb.append(ERROR_INVALID_DIVISOR);
+			}
+			isDivisorValid = divisor > 0;
 		} catch (NumberFormatException ex) {
-			isDivisorValid = false;
 			sb.append(ERROR_INVALID_DIVISOR);
 		}
 

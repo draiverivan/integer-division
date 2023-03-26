@@ -38,7 +38,7 @@ public class StartLongDivisionEurasianStyle {
 		int dividend = Integer.parseInt(userDividend);
 		int divisor = Integer.parseInt(userDivisor);
 		LongDivisionEurasianStyle division = new LongDivisionEurasianStyle();
-		logger.info(System.lineSeparator() + division.makeDivision(dividend, divisor));
+		logger.info( () -> System.lineSeparator() + division.makeDivision(dividend, divisor));
 
 
 	}
