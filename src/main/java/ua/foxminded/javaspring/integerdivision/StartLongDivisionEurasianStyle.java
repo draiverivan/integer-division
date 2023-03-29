@@ -1,16 +1,20 @@
 package ua.foxminded.javaspring.integerdivision;
 
 import java.util.Scanner;
-import java.util.logging.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /*This is Java application that divides integer numbers, and prints process and results in long division algorithm 
  * into the console. The long division algorithm will be in Eurasian style. 
  * Dividend must be integer and non-negative number.
  * Divisor must be integer and greater than null number.*/
 public class StartLongDivisionEurasianStyle {
-	private static final Logger logger = Logger.getLogger(StartLongDivisionEurasianStyle.class.getName());
+	
 
 	public static void main(String[] args) {
+		
+		Logger logger = LoggerFactory.getLogger(StartLongDivisionEurasianStyle.class);
 		Scanner scanner = new Scanner(System.in);
 		logger.info("Enter the dividend: ");
 		String userDividend = scanner.nextLine();
@@ -38,8 +42,7 @@ public class StartLongDivisionEurasianStyle {
 		int dividend = Integer.parseInt(userDividend);
 		int divisor = Integer.parseInt(userDivisor);
 		LongDivisionEurasianStyle division = new LongDivisionEurasianStyle();
-		logger.info( () -> System.lineSeparator() + division.makeDivision(dividend, divisor));
-
+		logger.info(System.lineSeparator() + division.makeDivision(dividend, divisor));
 
 	}
 }

@@ -18,7 +18,7 @@ into the console. The long division algorithm will be in Eurasian style.
 
 - In the root folder of this project enter command to build project:
 
-> mvn clean package
+> mvn clean package spring-boot:repackage
 
 - To execute in the root folder of this project enter command:
 
